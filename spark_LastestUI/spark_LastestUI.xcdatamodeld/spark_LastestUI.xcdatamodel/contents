@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Step" representedClassName="Step" syncable="YES">
+        <attribute name="componentType" optional="YES" attributeType="String"/>
+        <attribute name="descrip" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="pos1Column" optional="YES" attributeType="String"/>
+        <attribute name="pos1Row" optional="YES" attributeType="String"/>
+        <attribute name="pos2Column" optional="YES" attributeType="String"/>
+        <attribute name="pos2Row" optional="YES" attributeType="String"/>
+        <attribute name="resistance" optional="YES" attributeType="String"/>
+        <attribute name="stepNum" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="voltage" optional="YES" attributeType="String"/>
+        <relationship name="tutorial" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tutorial" inverseName="step" inverseEntity="Tutorial"/>
+    </entity>
+    <entity name="Tutorial" representedClassName="Tutorial" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="stepCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="step" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Step" inverseName="tutorial" inverseEntity="Step"/>
+    </entity>
+    <elements>
+        <element name="Step" positionX="-54" positionY="9" width="128" height="208"/>
+        <element name="Tutorial" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

@@ -1,0 +1,6 @@
+framework module Pods_spark_LastestUI {
+  umbrella header "Pods-spark_LastestUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
