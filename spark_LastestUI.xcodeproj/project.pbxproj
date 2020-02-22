@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		1AC6FEE2ED57F13AD9F1F58C /* Pods-spark_LastestUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark_LastestUI.debug.xcconfig"; path = "Target Support Files/Pods-spark_LastestUI/Pods-spark_LastestUI.debug.xcconfig"; sourceTree = "<group>"; };
 		265560BE24016F4E000B6765 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
-		2664A24723F3090900EAF2E0 /* spark_LastestUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spark_LastestUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2664A24723F3090900EAF2E0 /* SPARK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPARK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2664A24A23F3090900EAF2E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2664A24C23F3090900EAF2E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2664A24F23F3090900EAF2E0 /* spark_LastestUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = spark_LastestUI.xcdatamodel; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		2664A24823F3090900EAF2E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2664A24723F3090900EAF2E0 /* spark_LastestUI.app */,
+				2664A24723F3090900EAF2E0 /* SPARK.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 			);
 			name = spark_LastestUI;
 			productName = spark_LastestUI;
-			productReference = 2664A24723F3090900EAF2E0 /* spark_LastestUI.app */;
+			productReference = 2664A24723F3090900EAF2E0 /* SPARK.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -455,7 +455,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uky.spark.spark-LastestUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SPARK;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,7 +476,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uky.spark.spark-LastestUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SPARK;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
