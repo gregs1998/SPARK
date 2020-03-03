@@ -11,12 +11,34 @@ import ARKit
 
 class ViewController: UIViewController {
     
+    var steps: NSOrderedSet = []
+    var currentStep: Step = Step()
+    var currentStepIndex = 0
+    
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
     
     let fadeDuration: TimeInterval = 5
     let rotateDuration: TimeInterval = 3
     let waitDuration: TimeInterval = 0.5
+    
+    @IBAction func pressedNext(_ sender: Any) {
+        if(currentStepIndex < (steps.array.count - 1)){
+            currentStepIndex = currentStepIndex+1
+            currentStep = steps.array[currentStepIndex] as! Step
+            sizeLabel.text = currentStep.wrappedDescrip
+        }
+    }
+    
+    @IBAction func pressedPrev(_ sender: Any) {
+        if(currentStepIndex != 0){
+            currentStepIndex = currentStepIndex-1
+            currentStep = steps.array[currentStepIndex] as! Step
+            sizeLabel.text = currentStep.wrappedDescrip
+        }
+    }
+    
     
     lazy var fadeAndSpinAction: SCNAction = {
         return .sequence([
@@ -69,6 +91,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         sceneView.delegate = self
         configureLighting()
+        currentStep = steps.array[0] as! Step
+        sizeLabel.text = currentStep.wrappedDescrip
     }
     
     func configureLighting() {

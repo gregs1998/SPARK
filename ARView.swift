@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct ARView: View {
+    
+    let steps: NSOrderedSet
+    
     var body: some View {
-        CustomController()
+        CustomController(steps: steps)
     }
 }
 
-struct ARView_Previews: PreviewProvider {
-    static var previews: some View {
-        ARView()
-    }
-}
+//struct ARView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ARView()
+//    }
+//}
 
 struct CustomController: UIViewControllerRepresentable {
     
+    let steps: NSOrderedSet
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<CustomController>) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: "arView")
+        let controller: ViewController = storyboard.instantiateViewController(identifier: "arView") as! ViewController
+        controller.steps = steps
         return controller
     }
     

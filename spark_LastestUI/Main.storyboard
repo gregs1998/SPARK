@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="arView" id="BYZ-38-t0r" customClass="ViewController" customModule="spark_LastestUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="arView" id="BYZ-38-t0r" customClass="ViewController" customModule="SPARK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +31,16 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5S-mD-1ya">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" id="GPV-7l-AJ4">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sXA-Od-N9o">
+                                            <rect key="frame" x="16" y="7" width="31" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Prev"/>
+                                            <connections>
+                                                <action selector="pressedPrev:" destination="BYZ-38-t0r" eventType="touchDragInside" id="PgC-xs-RFe"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b9z-Ie-4KH"/>
                                     <barButtonItem systemItem="refresh" id="jNS-kS-eQZ">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,9 +49,29 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cz5-I3-l01"/>
+                                    <barButtonItem style="plain" id="vUF-Rd-9Uw">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aIm-D6-qWg">
+                                            <rect key="frame" x="327" y="7" width="32" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Next"/>
+                                            <connections>
+                                                <action selector="pressedNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Sr-Oz-0qW"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Wv-IjY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="S4e-4h-8u0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,13 +84,17 @@
                             <constraint firstAttribute="trailing" secondItem="KdE-5q-u14" secondAttribute="trailing" id="aXO-tf-eq2"/>
                             <constraint firstAttribute="trailing" secondItem="h5S-mD-1ya" secondAttribute="trailing" id="bgE-MO-OFp"/>
                             <constraint firstItem="Odu-x6-OJc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g2G-5b-TIA"/>
+                            <constraint firstItem="Afb-Wv-IjY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gBn-JQ-ktj"/>
+                            <constraint firstItem="Afb-Wv-IjY" firstAttribute="leading" secondItem="Odu-x6-OJc" secondAttribute="leading" id="q1a-cQ-54A"/>
                             <constraint firstItem="h5S-mD-1ya" firstAttribute="top" secondItem="Odu-x6-OJc" secondAttribute="bottom" id="r1o-B5-vnd"/>
+                            <constraint firstItem="Afb-Wv-IjY" firstAttribute="trailing" secondItem="Odu-x6-OJc" secondAttribute="trailing" id="wpg-Ai-4Sc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="Odu-x6-OJc" id="9DN-QD-YwH"/>
                         <outlet property="sceneView" destination="KdE-5q-u14" id="tTh-pN-MID"/>
+                        <outlet property="sizeLabel" destination="Afb-Wv-IjY" id="Y5d-PF-xos"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

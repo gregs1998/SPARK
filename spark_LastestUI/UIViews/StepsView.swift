@@ -41,7 +41,7 @@ struct StepsView: View {
                 }
                 Section{
                     VStack{
-                        NavigationLink(destination: ARView()){
+                        NavigationLink(destination: ARView(steps: currentTutorial.unwrappedStep)){
                             Text("Start in AR")
                             .foregroundColor(Color.blue)
                         }
