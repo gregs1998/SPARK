@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Prev"/>
                                             <connections>
-                                                <action selector="pressedPrev:" destination="BYZ-38-t0r" eventType="touchDragInside" id="PgC-xs-RFe"/>
+                                                <action selector="pressedPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ATX-L1-GLC"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>

@@ -27,7 +27,22 @@ class ViewController: UIViewController {
         if(currentStepIndex < (steps.array.count - 1)){
             currentStepIndex = currentStepIndex+1
             currentStep = steps.array[currentStepIndex] as! Step
-            sizeLabel.text = currentStep.wrappedDescrip
+            updateDescriptionLabel()
+        } else{
+              // Create the alert controller
+            let alertController = UIAlertController(title: "You're finished!", message: "You've finished the tutorial. Congrats! Feel free to explore this tutorial more, or go back to choose another.", preferredStyle: .alert)
+
+              // Create the actions
+            let okAction = UIAlertAction(title: "Done", style: UIAlertAction.Style.default) {
+                  UIAlertAction in
+                print("okay")
+              }
+
+              // Add the actions
+              alertController.addAction(okAction)
+
+              // Present the controller
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -35,7 +50,7 @@ class ViewController: UIViewController {
         if(currentStepIndex != 0){
             currentStepIndex = currentStepIndex-1
             currentStep = steps.array[currentStepIndex] as! Step
-            sizeLabel.text = currentStep.wrappedDescrip
+            updateDescriptionLabel()
         }
     }
     
@@ -92,7 +107,17 @@ class ViewController: UIViewController {
         sceneView.delegate = self
         configureLighting()
         currentStep = steps.array[0] as! Step
-        sizeLabel.text = currentStep.wrappedDescrip
+        updateDescriptionLabel()
+    }
+    
+    func updateDescriptionLabel(){
+        if(currentStep.wrappedComponentType == "Resistor"){
+            sizeLabel.text = "Add a \(currentStep.wrappedResistance)Ω resistor between row \(currentStep.wrappedPos1Row) and row \(currentStep.wrappedPos2Row)"
+        } else if (currentStep.wrappedComponentType == "Ground (GND)") {
+        sizeLabel.text = "Add Ground (GND) to row \(currentStep.wrappedPos1Row)"
+        } else{
+            sizeLabel.text = "Add a \(currentStep.wrappedVoltage)V voltage source to row \(currentStep.wrappedPos1Row)"
+        }
     }
     
     func configureLighting() {
