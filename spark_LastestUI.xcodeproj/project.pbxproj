@@ -35,6 +35,8 @@
 		26F8F68023F34EF700589214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F67F23F34EF700589214 /* HomeView.swift */; };
 		26F8F68223F354B700589214 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F68123F354B700589214 /* ChoiceView.swift */; };
 		26F8F68423F3597900589214 /* speechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F68323F3597900589214 /* speechModel.swift */; };
+		FF3A85CE24119E2200CEC67C /* GroundWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = FF3A85CD24119E2200CEC67C /* GroundWire.scn */; };
+		FF3A85D024119E3200CEC67C /* PowerWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = FF3A85CF24119E3200CEC67C /* PowerWire.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		26F8F68323F3597900589214 /* speechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechModel.swift; sourceTree = "<group>"; };
 		ACD5110438ACAFD61B168861 /* Pods_spark_LastestUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spark_LastestUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB61DA532FC070F296CF36E /* Pods-spark_LastestUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark_LastestUI.release.xcconfig"; path = "Target Support Files/Pods-spark_LastestUI/Pods-spark_LastestUI.release.xcconfig"; sourceTree = "<group>"; };
+		FF3A85CD24119E2200CEC67C /* GroundWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = GroundWire.scn; path = ../../../Desktop/GroundWire.scn; sourceTree = "<group>"; };
+		FF3A85CF24119E3200CEC67C /* PowerWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PowerWire.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			children = (
 				26AB837D23FF3C9000D3217F /* ViewController.swift */,
 				26AB837223FF38B800D3217F /* resistor2.scn */,
+				FF3A85CF24119E3200CEC67C /* PowerWire.scn */,
+				FF3A85CD24119E2200CEC67C /* GroundWire.scn */,
 				26661BBD23FB14D100F3D177 /* Main.storyboard */,
 				2664A24A23F3090900EAF2E0 /* AppDelegate.swift */,
 				2664A24C23F3090900EAF2E0 /* SceneDelegate.swift */,
@@ -247,8 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2664A25A23F3090C00EAF2E0 /* LaunchScreen.storyboard in Resources */,
+				FF3A85D024119E3200CEC67C /* PowerWire.scn in Resources */,
 				2664A25723F3090C00EAF2E0 /* Preview Assets.xcassets in Resources */,
 				2664A25423F3090C00EAF2E0 /* Assets.xcassets in Resources */,
+				FF3A85CE24119E2200CEC67C /* GroundWire.scn in Resources */,
 				26AB837323FF38B800D3217F /* resistor2.scn in Resources */,
 				26661BBF23FB14D100F3D177 /* Main.storyboard in Resources */,
 			);
@@ -447,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"spark_LastestUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 3739MM3Z3G;
+				DEVELOPMENT_TEAM = XZC5GZAQ9G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = spark_LastestUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"spark_LastestUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 3739MM3Z3G;
+				DEVELOPMENT_TEAM = XZC5GZAQ9G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = spark_LastestUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

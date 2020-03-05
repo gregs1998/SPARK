@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var steps: NSOrderedSet = []
     var currentStep: Step = Step()
     var currentStepIndex = 0
+    var node = SCNNode()
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
@@ -60,6 +61,8 @@ class ViewController: UIViewController {
             .move(by: SCNVector3(0, 0.05, 0), duration: 0),
             .fadeIn(duration: fadeDuration),
             .move(by: SCNVector3(0, -0.05, 0), duration: rotateDuration),
+            .move(by: SCNVector3(0, 0, -0.01), duration: rotateDuration),
+            .move(by: SCNVector3(0, 0, 0.01), duration: rotateDuration),
             //.rotateBy(x: 0, y: 0, z: CGFloat.pi * 360 / 180, duration: rotateDuration),
             .wait(duration: waitDuration),
             //.fadeOut(duration: fadeDuration)
@@ -185,10 +188,10 @@ extension ViewController: ARSCNViewDelegate {
     }
     
     func getNode(withImageName name: String) -> SCNNode {
-        var node = SCNNode()
-        switch name {
-        case "Colorful Spark":
-            node = resistorNode
+        //var node = SCNNode()
+        //switch name {
+        //case "Colorful Spark":
+        node = resistorNode
         //case "ColorfulSpark-1":
           //  node = resistorNode
        // case "spark-slanted":
@@ -197,10 +200,12 @@ extension ViewController: ARSCNViewDelegate {
           //  node = mountainNode
         //case "Trees In the Dark":
           //  node = treeNode
-        default:
-            break
-        }
+        //default:
+          //  break
+        
         return node
     }
-    
+
 }
+    
+
