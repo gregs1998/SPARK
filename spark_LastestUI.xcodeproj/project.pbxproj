@@ -27,6 +27,7 @@
 		2691B5C023F475B4008DECE9 /* StepsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691B5BF23F475B4008DECE9 /* StepsList.swift */; };
 		26AB837323FF38B800D3217F /* resistor2.scn in Resources */ = {isa = PBXBuildFile; fileRef = 26AB837223FF38B800D3217F /* resistor2.scn */; };
 		26AB837E23FF3C9000D3217F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB837D23FF3C9000D3217F /* ViewController.swift */; };
+		26EA8C4F24182B890076FA11 /* GroundWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = 26EA8C4E24182B890076FA11 /* GroundWire.scn */; };
 		26EB680123F5067E00F8A652 /* ViewStepNoEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB680023F5067E00F8A652 /* ViewStepNoEdit.swift */; };
 		26EB680323F5070000F8A652 /* StepEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB680223F5070000F8A652 /* StepEditView.swift */; };
 		26EB680923F510CB00F8A652 /* ViewStepEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB680823F510CB00F8A652 /* ViewStepEdit.swift */; };
@@ -35,7 +36,6 @@
 		26F8F68023F34EF700589214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F67F23F34EF700589214 /* HomeView.swift */; };
 		26F8F68223F354B700589214 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F68123F354B700589214 /* ChoiceView.swift */; };
 		26F8F68423F3597900589214 /* speechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8F68323F3597900589214 /* speechModel.swift */; };
-		FF3A85CE24119E2200CEC67C /* GroundWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = FF3A85CD24119E2200CEC67C /* GroundWire.scn */; };
 		FF3A85D024119E3200CEC67C /* PowerWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = FF3A85CF24119E3200CEC67C /* PowerWire.scn */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +63,7 @@
 		2691B5BF23F475B4008DECE9 /* StepsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsList.swift; sourceTree = "<group>"; };
 		26AB837223FF38B800D3217F /* resistor2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = resistor2.scn; sourceTree = "<group>"; };
 		26AB837D23FF3C9000D3217F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = SOURCE_ROOT; };
+		26EA8C4E24182B890076FA11 /* GroundWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GroundWire.scn; sourceTree = "<group>"; };
 		26EB680023F5067E00F8A652 /* ViewStepNoEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStepNoEdit.swift; sourceTree = "<group>"; };
 		26EB680223F5070000F8A652 /* StepEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepEditView.swift; sourceTree = "<group>"; };
 		26EB680823F510CB00F8A652 /* ViewStepEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStepEdit.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		26F8F68323F3597900589214 /* speechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechModel.swift; sourceTree = "<group>"; };
 		ACD5110438ACAFD61B168861 /* Pods_spark_LastestUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spark_LastestUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB61DA532FC070F296CF36E /* Pods-spark_LastestUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark_LastestUI.release.xcconfig"; path = "Target Support Files/Pods-spark_LastestUI/Pods-spark_LastestUI.release.xcconfig"; sourceTree = "<group>"; };
-		FF3A85CD24119E2200CEC67C /* GroundWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = GroundWire.scn; path = ../../../Desktop/GroundWire.scn; sourceTree = "<group>"; };
 		FF3A85CF24119E3200CEC67C /* PowerWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PowerWire.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 				26AB837D23FF3C9000D3217F /* ViewController.swift */,
 				26AB837223FF38B800D3217F /* resistor2.scn */,
 				FF3A85CF24119E3200CEC67C /* PowerWire.scn */,
-				FF3A85CD24119E2200CEC67C /* GroundWire.scn */,
+				26EA8C4E24182B890076FA11 /* GroundWire.scn */,
 				26661BBD23FB14D100F3D177 /* Main.storyboard */,
 				2664A24A23F3090900EAF2E0 /* AppDelegate.swift */,
 				2664A24C23F3090900EAF2E0 /* SceneDelegate.swift */,
@@ -256,8 +256,8 @@
 				FF3A85D024119E3200CEC67C /* PowerWire.scn in Resources */,
 				2664A25723F3090C00EAF2E0 /* Preview Assets.xcassets in Resources */,
 				2664A25423F3090C00EAF2E0 /* Assets.xcassets in Resources */,
-				FF3A85CE24119E2200CEC67C /* GroundWire.scn in Resources */,
 				26AB837323FF38B800D3217F /* resistor2.scn in Resources */,
+				26EA8C4F24182B890076FA11 /* GroundWire.scn in Resources */,
 				26661BBF23FB14D100F3D177 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"spark_LastestUI/Preview Content\"";
-				DEVELOPMENT_TEAM = XZC5GZAQ9G;
+				DEVELOPMENT_TEAM = 3739MM3Z3G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = spark_LastestUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -476,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"spark_LastestUI/Preview Content\"";
-				DEVELOPMENT_TEAM = XZC5GZAQ9G;
+				DEVELOPMENT_TEAM = 3739MM3Z3G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = spark_LastestUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

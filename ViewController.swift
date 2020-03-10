@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     let rotateDuration: TimeInterval = 3
     let waitDuration: TimeInterval = 0.5
     
+    var currentOffset: Float = 0.05
+    
     @IBAction func pressedNext(_ sender: Any) {
         if(currentStepIndex < (steps.array.count - 1)){
             currentStepIndex = currentStepIndex+1
@@ -94,7 +96,7 @@ class ViewController: UIViewController {
         let scaleFactor  = 0.0002
         node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
         node.eulerAngles.x += -.pi / 2
-        node.position = SCNVector3(0.023,0,0.015)
+        node.position = SCNVector3(self.currentOffset,0,0.015)
         return node
     }()
     
@@ -104,7 +106,7 @@ class ViewController: UIViewController {
           let scaleFactor  = 0.002
           node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
           node.eulerAngles.y += -.pi / 2
-          node.position = SCNVector3(0.023,0,0.015)
+        node.position = SCNVector3(self.currentOffset,0,0.015)
           return node
       }()
     
@@ -114,7 +116,7 @@ class ViewController: UIViewController {
           let scaleFactor  = 0.002
           node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
           node.eulerAngles.y += -.pi / 2
-          node.position = SCNVector3(0.023,0,0.015)
+          node.position = SCNVector3(self.currentOffset,0,0.015)
           return node
       }()
     
@@ -124,6 +126,7 @@ class ViewController: UIViewController {
         configureLighting()
         currentStep = steps.array[0] as! Step
         updateDescriptionLabel()
+        sliderValueLabel.text = "\(self.currentOffset)"
     }
     
     func updateDescriptionLabel(){
@@ -165,6 +168,15 @@ class ViewController: UIViewController {
         self.label.textColor = UIColor.black
         label.text = "Move camera around to detect images"
     }
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBOutlet weak var sliderValueLabel: UILabel!
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        currentOffset = sender.value * 0.05
+        sliderValueLabel.text = "\(currentOffset)"
+    }
+    
 }
 
 extension ViewController: ARSCNViewDelegate {
