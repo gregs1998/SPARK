@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     
     var steps: NSOrderedSet = []
     var currentStep: Step = Step()
-    var currentStepIndex = 0
-    var node = SCNNode()
+    var currentStepIndex = 0;
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
@@ -44,7 +43,9 @@ class ViewController: UIViewController {
 
               // Present the controller
             self.present(alertController, animated: true, completion: nil)
+            
         }
+        resetTrackingConfiguration()
     }
     
     @IBAction func pressedPrev(_ sender: Any) {
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
             currentStepIndex = currentStepIndex-1
             currentStep = steps.array[currentStepIndex] as! Step
             updateDescriptionLabel()
+            resetTrackingConfiguration()
         }
     }
     
@@ -96,14 +98,25 @@ class ViewController: UIViewController {
         return node
     }()
     
-    lazy var mountainNode: SCNNode = {
-        guard let scene = SCNScene(named: "mountain.scn"),
-            let node = scene.rootNode.childNode(withName: "mountain", recursively: false) else { return SCNNode() }
-        let scaleFactor  = 0.25
-        node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
-        node.eulerAngles.x += -.pi / 2
-        return node
-    }()
+     lazy var powerNode: SCNNode = {
+          guard let scene = SCNScene(named: "PowerWire.scn"),
+              let node = scene.rootNode.childNode(withName: "PowerWire", recursively: false) else { return SCNNode() }
+          let scaleFactor  = 0.002
+          node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
+          node.eulerAngles.y += -.pi / 2
+          node.position = SCNVector3(0.023,0,0.015)
+          return node
+      }()
+    
+    lazy var groundNode: SCNNode = {
+          guard let scene = SCNScene(named: "GroundWire.scn"),
+              let node = scene.rootNode.childNode(withName: "GroundWire", recursively: false) else { return SCNNode() }
+          let scaleFactor  = 0.002
+          node.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
+          node.eulerAngles.y += -.pi / 2
+          node.position = SCNVector3(0.023,0,0.015)
+          return node
+      }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,7 +204,7 @@ extension ViewController: ARSCNViewDelegate {
         //var node = SCNNode()
         //switch name {
         //case "Colorful Spark":
-        node = resistorNode
+       // node = resistorNode
         //case "ColorfulSpark-1":
           //  node = resistorNode
        // case "spark-slanted":
@@ -202,6 +215,18 @@ extension ViewController: ARSCNViewDelegate {
           //  node = treeNode
         //default:
           //  break
+        var node = SCNNode()
+        
+        switch currentStep.wrappedComponentType {
+            case "Resistor":
+                node = resistorNode
+            case "Voltage Source (Vcc)":
+                node = powerNode
+            case "Ground (GND)":
+                node = groundNode
+            default:
+                node = treeNode
+        }
         
         return node
     }
