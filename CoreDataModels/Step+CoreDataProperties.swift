@@ -37,6 +37,10 @@ extension Step {
         pos1Row ?? "0"
     }
     
+    var wrappedPos1RowDouble: Double{
+        Double(wrappedPos1Row) ?? 0.0
+    }
+    
     var wrappedPos1Column: String{
         pos1Column ?? "A"
     }
