@@ -16,6 +16,15 @@ extension Step {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Step> {
         return NSFetchRequest<Step>(entityName: "Step")
     }
+    
+    func JSONstuff(){
+        let data: Data = "{\n\t\"somekey\": 42.0,\n\t\"anotherkey\": {\n\t\t\"somenestedkeys\": true\n\t}\n}".data(using: .utf8) ?? Data()
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        //print(data)
+        let bob = json as? [Any]
+        //print(json!)
+        print(bob ?? "Failed")
+    }
 
     @NSManaged public var descrip: String?
     @NSManaged public var pos1Row: String?
@@ -28,6 +37,8 @@ extension Step {
     @NSManaged public var id: UUID?
     @NSManaged public var tutorial: Tutorial?
     @NSManaged public var stepNum: Int16
+    
+    //@interface NSJSONSerialization : NSObject
     
     var wrappedDescrip: String{
         descrip ?? "Unknown Description"

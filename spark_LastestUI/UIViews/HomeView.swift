@@ -31,6 +31,9 @@ struct HomeView: View {
 func startSpeech(){
     let speaker = speechModel()
     speaker.speak(textToSay: "Welcome to SPARK, your personal circuit building application.")
+    
+    let test = Step()
+    test.JSONstuff()
 //    let bob = dispResCode(resVal: "100")
 //    print(bob)
 }

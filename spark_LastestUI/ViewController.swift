@@ -28,6 +28,8 @@ class ViewController: UIViewController {
             currentStepIndex = currentStepIndex+1
             currentStep = steps.array[currentStepIndex] as! Step
             updateDescriptionLabel()
+            let speaker = speechModel()
+            speaker.speak(textToSay: sizeLabel.text ?? "unknown")
         } else{
               // Create the alert controller
             let alertController = UIAlertController(title: "You're finished!", message: "You've finished the tutorial. Congrats! Feel free to explore this tutorial more, or go back to choose another.", preferredStyle: .alert)
@@ -54,7 +56,8 @@ class ViewController: UIViewController {
             currentStep = steps.array[currentStepIndex] as! Step
             updateDescriptionLabel()
             resetTrackingConfiguration()
-        }
+            let speaker = speechModel()
+            speaker.speak(textToSay: sizeLabel.text ?? "unknown")        }
     }
     
     
@@ -127,15 +130,17 @@ class ViewController: UIViewController {
         configureLighting()
         currentStep = steps.array[0] as! Step
         updateDescriptionLabel()
+        let speaker = speechModel()
+        speaker.speak(textToSay: sizeLabel.text ?? "unknown")
     }
     
     func updateDescriptionLabel(){
         if(currentStep.wrappedComponentType == "Resistor"){
-            sizeLabel.text = "Add a \(currentStep.wrappedResistance)Ω resistor between row \(currentStep.wrappedPos1Row) and row \(currentStep.wrappedPos2Row)"
+            sizeLabel.text = "Add a \(currentStep.wrappedResistance) ohm resistor between row \(currentStep.wrappedPos1Row) and row \(currentStep.wrappedPos2Row)"
         } else if (currentStep.wrappedComponentType == "Ground (GND)") {
         sizeLabel.text = "Add Ground (GND) to row \(currentStep.wrappedPos1Row)"
         } else{
-            sizeLabel.text = "Add a \(currentStep.wrappedVoltage)V voltage source to row \(currentStep.wrappedPos1Row)"
+            sizeLabel.text = "Add a \(currentStep.wrappedVoltage) volt voltage source to row \(currentStep.wrappedPos1Row)"
         }
     }
     
