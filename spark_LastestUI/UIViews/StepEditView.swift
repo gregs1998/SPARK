@@ -44,7 +44,8 @@ struct StepEditView: View {
                             self.step.pos1Column = self.pos1Column
                             self.step.pos2Row = self.pos2Row
                             self.step.pos2Column = self.pos2Column
-                            //self.step.resistance = self.resistance
+                            self.step.resistance = self.resistance
+                            self.step.voltage = self.voltage
                             try? self.moc.save()
                             self.presentationMode.wrappedValue.dismiss()
                         }
@@ -54,7 +55,8 @@ struct StepEditView: View {
                         self.step.pos1Column = self.pos1Column
                         self.step.pos2Row = self.pos2Row
                         self.step.pos2Column = self.pos2Column
-                        //self.step.resistance = self.resistance
+                        self.step.resistance = self.resistance
+                        self.step.voltage = self.voltage
                         try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()
                     }
