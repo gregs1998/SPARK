@@ -83,13 +83,27 @@ struct StepEditView: View {
                 }
                 if(self.step.wrappedComponentType == "Resistor"){
                     Section(header: Text("Position 2")){
+                        VStack{
+                            HStack{
+                                TextField("Position 2 Column", text: $pos2Column)
+                                    .keyboardType(.alphabet)
+                                TextField("Position 2 Row", text: $pos2Row)
+                                    .keyboardType(.numberPad)
+                            }
+                        }
+                    }
+                    Section(header: Text("Resistance")){
                         HStack{
-                            TextField("Position 2 Column", text: $pos2Column)
-                                .keyboardType(.alphabet)
-                            TextField("Position 2 Row", text: $pos2Row)
+                            TextField("Resistance", text: $resistance)
                                 .keyboardType(.numberPad)
-                            //TextField("Resistance", text: $resistance)
-                              //  .keyboardType(.numberPad)
+                        }
+                    }
+                }
+                if(self.step.wrappedComponentType == "Voltage Source (Vcc)"){
+                    Section(header: Text("Voltage")){
+                        HStack{
+                            TextField("Voltage", text: $voltage)
+                                .keyboardType(.numberPad)
                         }
                     }
                 }
@@ -132,6 +146,8 @@ struct StepEditView: View {
             self.pos1Column = self.step.wrappedPos1Column
             self.pos2Row = self.step.wrappedPos2Row
             self.pos2Column = self.step.wrappedPos2Column
+            self.resistance = self.step.wrappedResistance
+            self.voltage = self.step.wrappedVoltage
         })
     }
     }
