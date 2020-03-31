@@ -53,6 +53,18 @@ func dispResCode(resVal: String)->HStack<TupleView<(Text,Text,Text)>>{
     var colors: [UIColor] = []
     var colorNames: [String] = []
     
+    if(resVal.isEmpty){
+        let errorStack = HStack{
+            Text("Error")
+                .foregroundColor(Color(UIColor.systemPink))
+            Text("Error")
+            .foregroundColor(Color(UIColor.systemPink))
+            Text("Error")
+            .foregroundColor(Color(UIColor.systemPink))
+        }
+        return errorStack
+    }
+    
     for char in resVal{
         switch char{
         case "0":
