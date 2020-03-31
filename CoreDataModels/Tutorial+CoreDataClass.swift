@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 @objc(Tutorial)
-public class Tutorial: NSManagedObject {
+public class Tutorial: NSManagedObject, Encodable {
 
 }

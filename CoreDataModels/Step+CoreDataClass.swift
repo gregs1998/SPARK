@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 @objc(Step)
-public class Step: NSManagedObject {
+public class Step: NSManagedObject, Encodable {
 
 }
