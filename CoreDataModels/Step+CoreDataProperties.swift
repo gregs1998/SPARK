@@ -17,14 +17,14 @@ extension Step {
         return NSFetchRequest<Step>(entityName: "Step")
     }
     
-    func JSONstuff(){
-        let data: Data = "{\n\t\"somekey\": 42.0,\n\t\"anotherkey\": {\n\t\t\"somenestedkeys\": true\n\t}\n}".data(using: .utf8) ?? Data()
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        //print(data)
-        let bob = json as? [Any]
-        //print(json!)
-        print(bob ?? "Failed")
-    }
+//    func JSONstuff(){
+//        let data: Data = "{\n\t\"somekey\": 42.0,\n\t\"anotherkey\": {\n\t\t\"somenestedkeys\": true\n\t}\n}".data(using: .utf8) ?? Data()
+//        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+//        //print(data)
+//        let bob = json as? [Any]
+//        //print(json!)
+//        print(bob ?? "Failed")
+//    }
 
     @NSManaged public var descrip: String?
     @NSManaged public var pos1Row: String?
@@ -43,7 +43,7 @@ extension Step {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(descrip, forKey: .descrip)
+        try container.encode(wrappedDescrip, forKey: .descrip)
         try container.encode(pos1Row, forKey: .pos1Row)
         try container.encode(pos2Row, forKey: .pos2Row)
         try container.encode(pos1Column, forKey: .pos1Column)
@@ -51,10 +51,9 @@ extension Step {
         try container.encode(resistance, forKey: .resistance)
         try container.encode(voltage, forKey: .voltage)
         try container.encode(componentType, forKey: .componentType)
-        try container.encode(tutorial, forKey: .tutorial)
+        //try container.encode(tutorial, forKey: .tutorial)
         try container.encode(stepNum, forKey: .stepNum)
     }
-    
     //@interface NSJSONSerialization : NSObject
     
     var wrappedDescrip: String{

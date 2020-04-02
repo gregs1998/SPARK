@@ -15,6 +15,16 @@ struct StepEditView: View {
     
     let step:Step
     
+    func encodeStep(){
+        do {
+            let jsonData = try JSONEncoder().encode(step)
+            print(jsonData)
+            print("stop")
+        } catch {
+            print("Error fetching data from CoreData")
+        }
+    }
+    
     @State private var showError = false
     
     @State private var description = ""
@@ -109,6 +119,8 @@ struct StepEditView: View {
                         }
                     }
                 }
+            }.onAppear(){
+                //self.encodeStep()
             }
         .navigationBarItems(trailing: Button("Done"){
 //            self.step.descrip = self.description

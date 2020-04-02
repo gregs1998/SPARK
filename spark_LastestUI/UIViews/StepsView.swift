@@ -32,6 +32,16 @@ struct StepsView: View {
         
     }
     
+    func tutorialToJSON(){
+            do {
+                let jsonData = try JSONEncoder().encode(currentTutorial)
+                print(jsonData)
+                print("stop")
+            } catch {
+                print("Error fetching data from CoreData")
+            }
+    }
+    
     var body: some View {
         // NavigationView{
         VStack{
@@ -63,6 +73,7 @@ struct StepsView: View {
             .sheet(isPresented: $showingAddScreen){
                 AddStepsView(tutorialToAddStep: self.currentTutorial).environment(\.managedObjectContext, self.moc)
         }.onAppear(perform: {
+            self.tutorialToJSON()
             print(self.currentTutorial)
             print("stop here")
         })
