@@ -26,21 +26,21 @@ extension Step {
 //        print(bob ?? "Failed")
 //    }
 
-    @NSManaged public var descrip: String?
-    @NSManaged public var pos1Row: String?
-    @NSManaged public var pos2Row: String?
-    @NSManaged public var pos1Column: String?
-    @NSManaged public var pos2Column: String?
-    @NSManaged public var resistance: String?
-    @NSManaged public var voltage: String?
-    @NSManaged public var componentType: String?
-    @NSManaged public var id: UUID?
-    @NSManaged public var tutorial: Tutorial?
-    @NSManaged public var stepNum: Int16
+    //@NSManaged public var descrip: String?
+    //@NSManaged public var pos1Row: String?
+    //@NSManaged public var pos2Row: String?
+    //@NSManaged public var pos1Column: String?
+    //@NSManaged public var pos2Column: String?
+    //@NSManaged public var resistance: String?
+    //@NSManaged public var voltage: String?
+    //@NSManaged public var componentType: String?
+    //@NSManaged public var id: UUID?
+    //@NSManaged public var tutorial: Tutorial?
+    //@NSManaged public var stepNum: Int16
     
-    private enum CodingKeys: String, CodingKey { case descrip, pos1Row, pos2Row, pos1Column, pos2Column, resistance, voltage, componentType, id, tutorial, stepNum }
+    //private enum CodingKeys: String, CodingKey { case descrip, pos1Row, pos2Row, pos1Column, pos2Column, resistance, voltage, componentType, id, tutorial, stepNum }
     
-    public func encode(to encoder: Encoder) throws {
+    /*public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(wrappedDescrip, forKey: .descrip)
@@ -53,8 +53,9 @@ extension Step {
         try container.encode(componentType, forKey: .componentType)
         //try container.encode(tutorial, forKey: .tutorial)
         try container.encode(stepNum, forKey: .stepNum)
-    }
+    }*/
     //@interface NSJSONSerialization : NSObject
+    
     
     var wrappedDescrip: String{
         descrip ?? "Unknown Description"

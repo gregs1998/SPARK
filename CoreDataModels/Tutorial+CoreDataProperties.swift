@@ -17,21 +17,19 @@ extension Tutorial {
         return NSFetchRequest<Tutorial>(entityName: "Tutorial")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var title: String?
-    @NSManaged public var step: NSOrderedSet?
+    //@NSManaged public var id: UUID?
+    //@NSManaged public var title: String?
+    //@NSManaged public var step: NSOrderedSet?
     //@NSManaged public var stepCount: Int16
     
-    private enum CodingKeys: String, CodingKey { case id, title, step }
+    //enum CodingKeys: String, CodingKey { case id, title, step }
     
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-        try container.encode((step ?? []).array as! [Step], forKey: .step)
-    }
-    
-    
+    //public func encode(to encoder: Encoder) throws {
+      //  var container = encoder.container(keyedBy: CodingKeys.self)
+        //try container.encode(id, forKey: .id)
+        //try container.encode(title, forKey: .title)
+        //try container.encode((step ?? []).array as! [Step], forKey: .step)
+    //}
     
     var unwrappedStep: NSOrderedSet{
         step ?? []

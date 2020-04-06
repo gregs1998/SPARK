@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import CoreData
+import Foundation
 
 struct StepEditView: View {
     
@@ -37,6 +39,26 @@ struct StepEditView: View {
     @State private var voltage = ""
     
     let componentTypes = ["Resistor", "Power Source (Vcc)", "Ground (GND)"]
+    
+    func stepToJSON(){
+            do {
+                let jsonData = try JSONEncoder().encode(step)
+                print (jsonData)
+                
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+
+                let data = try encoder.encode(step)
+                print(String(data: data, encoding: .utf8)!)
+                
+                let decoder = JSONDecoder()
+                decoder.userInfo[CodingUserInfoKey.managedObjectContext!] = self.moc
+                let newStep: Step? = try? decoder.decode(Step.self, from: jsonData)
+                print(newStep?.descrip ?? "error")
+            } catch {
+                print("Error fetching data from CoreData")
+            }
+    }
     
     var body: some View {
         VStack{
@@ -120,7 +142,7 @@ struct StepEditView: View {
                     }
                 }
             }.onAppear(){
-                //self.encodeStep()
+                self.stepToJSON()
             }
         .navigationBarItems(trailing: Button("Done"){
 //            self.step.descrip = self.description

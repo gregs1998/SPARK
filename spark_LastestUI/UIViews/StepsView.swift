@@ -35,7 +35,16 @@ struct StepsView: View {
     func tutorialToJSON(){
             do {
                 let jsonData = try JSONEncoder().encode(currentTutorial)
-                print(jsonData)
+                print (jsonData)
+                
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+
+                let data = try encoder.encode(currentTutorial)
+                print(String(data: data, encoding: .utf8)!)
+                
+                let backAgain = try JSONDecoder().decode([Tutorial].self, from: data)
+                //print(backAgain.title)
                 print("stop")
             } catch {
                 print("Error fetching data from CoreData")
@@ -74,7 +83,7 @@ struct StepsView: View {
                 AddStepsView(tutorialToAddStep: self.currentTutorial).environment(\.managedObjectContext, self.moc)
         }.onAppear(perform: {
             self.tutorialToJSON()
-            print(self.currentTutorial)
+            // print(self.currentTutorial)
             print("stop here")
         })
     }
