@@ -14,9 +14,11 @@ struct StepsView: View {
     // let currentTutorial: Tutorial
     
     func getDocumentsDirectory() -> URL {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let path = documentsURL[0]
-        return path
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
     }
     
     @Environment(\.managedObjectContext) var moc
@@ -47,9 +49,10 @@ struct StepsView: View {
                 let data = try encoder.encode(currentTutorial)
                 print(String(data: data, encoding: .utf8)!)
                 
-              let url = self.getDocumentsDirectory().appendingPathComponent("\(currentTutorial.title ?? "newtut").json")
+                let url = self.getDocumentsDirectory().appendingPathComponent("\(currentTutorial.title ?? "tutorial").json")
                 
                 do {
+                    // try String(data:data,encoding:.utf8)!.write
                     try String(data:data,encoding:.utf8)!.write(to: url, atomically: true, encoding: String.Encoding.utf8)
 //                    let input = try String(contentsOf: url)
 //                    print(input)
