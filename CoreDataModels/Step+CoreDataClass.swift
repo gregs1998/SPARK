@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 @objc(Step)
-public class Step: NSManagedObject, Codable {
+public class Step: NSManagedObject, Encodable {
 
     enum CodingKeys: String, CodingKey {
         case descrip
@@ -40,30 +40,24 @@ public class Step: NSManagedObject, Codable {
     @NSManaged public var tutorial: Tutorial?
     @NSManaged public var stepNum: Int16
     
-    required convenience public init(from decoder: Decoder) throws {
-        guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
-            let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
-            let entity = NSEntityDescription.entity(forEntityName: "Step", in: managedObjectContext) else {
-            fatalError("Failed to decode User")
-        }
-        
-        self.init(entity: entity, insertInto: managedObjectContext) // initializing our struct
-        
-        let container = try decoder.container(keyedBy: CodingKeys.self) // defining our (keyed) container
-        self.id = try container.decode(UUID?.self, forKey: .id) // extracting the data
-        self.descrip = try container.decode(String?.self, forKey: .descrip) // extracting the data
-        self.pos1Row = try container.decode(String?.self, forKey: .pos1Row) // extracting the data
-        self.pos2Row = try container.decode(String?.self, forKey: .pos2Row) // extracting the data
-        self.pos1Column = try container.decode(String?.self, forKey: .pos1Column) // extracting the data
-        self.pos2Column = try container.decode(String?.self, forKey: .pos2Column) // extracting the data
-        self.resistance = try container.decode(String?.self, forKey: .resistance) // extracting the data
-        self.voltage = try container.decode(String?.self, forKey: .voltage) // extracting the data
-        self.componentType = try container.decode(String?.self, forKey: .componentType) // extracting the data
-        self.stepNum = try container.decode(Int16.self, forKey: .stepNum) // extracting the data
-        
-        try managedObjectContext.save()
-
-    }
+//    required convenience public init(from decoder: Decoder) throws {
+//        guard let context = decoder.userInfo[.context] as? NSManagedObjectContext else { fatalError("Error: NSManagedObjectContext not available") }
+//        let entity = NSEntityDescription.entity(forEntityName: "Step", in: context)!
+//
+//        self.init(entity: entity, insertInto: context) // initializing our struct
+//
+//        let container = try decoder.container(keyedBy: CodingKeys.self) // defining our (keyed) container
+//        self.id = try container.decode(UUID?.self, forKey: .id) // extracting the data
+//        self.descrip = try container.decode(String?.self, forKey: .descrip) // extracting the data
+//        self.pos1Row = try container.decode(String?.self, forKey: .pos1Row) // extracting the data
+//        self.pos2Row = try container.decode(String?.self, forKey: .pos2Row) // extracting the data
+//        self.pos1Column = try container.decode(String?.self, forKey: .pos1Column) // extracting the data
+//        self.pos2Column = try container.decode(String?.self, forKey: .pos2Column) // extracting the data
+//        self.resistance = try container.decode(String?.self, forKey: .resistance) // extracting the data
+//        self.voltage = try container.decode(String?.self, forKey: .voltage) // extracting the data
+//        self.componentType = try container.decode(String?.self, forKey: .componentType) // extracting the data
+//        self.stepNum = try container.decode(Int16.self, forKey: .stepNum) // extracting the data
+//    }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -104,7 +98,13 @@ class StepController{
 //    }
 }
 
-public extension CodingUserInfoKey {
-    // Helper property to retrieve the context
-    static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")
+extension CodingUserInfoKey {
+    static let context = CodingUserInfoKey(rawValue: "context")!
+}
+
+extension JSONDecoder {
+    convenience init(context: NSManagedObjectContext) {
+        self.init()
+        self.userInfo[.context] = context
+    }
 }

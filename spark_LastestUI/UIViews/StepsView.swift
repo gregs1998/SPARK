@@ -8,9 +8,16 @@
 
 import SwiftUI
 import CoreData
+import FileProvider
 
 struct StepsView: View {
     // let currentTutorial: Tutorial
+    
+    func getDocumentsDirectory() -> URL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let path = documentsURL[0]
+        return path
+    }
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
@@ -34,16 +41,22 @@ struct StepsView: View {
     
     func tutorialToJSON(){
             do {
-                let jsonData = try JSONEncoder().encode(currentTutorial)
-                print (jsonData)
-                
                 let encoder = JSONEncoder()
                 encoder.outputFormatting = .prettyPrinted
 
                 let data = try encoder.encode(currentTutorial)
                 print(String(data: data, encoding: .utf8)!)
                 
-                let backAgain = try JSONDecoder().decode([Tutorial].self, from: data)
+              let url = self.getDocumentsDirectory().appendingPathComponent("\(currentTutorial.title ?? "newtut").json")
+                
+                do {
+                    try String(data:data,encoding:.utf8)!.write(to: url, atomically: true, encoding: String.Encoding.utf8)
+//                    let input = try String(contentsOf: url)
+//                    print(input)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
                 //print(backAgain.title)
                 print("stop")
             } catch {
@@ -70,19 +83,24 @@ struct StepsView: View {
             Spacer()
         }
         .navigationBarTitle("Steps")
-        .navigationBarItems(trailing:
-            Button(action: {
-                self.showingAddScreen.toggle()
-            }) {
-                Image(systemName: "plus")
+        .navigationBarItems(trailing: HStack{
+            Button(action:{
+                self.tutorialToJSON()
+            }){Image(systemName: "square.and.arrow.up")
+                .foregroundColor(Color.blue)
             }
-        )
+            Spacer()
+            Button(action: {
+            self.showingAddScreen.toggle()
+        }) {
+            Image(systemName: "plus")
+        }
+        })
         // }
         //.navigationViewStyle(StackNavigationViewStyle())
             .sheet(isPresented: $showingAddScreen){
                 AddStepsView(tutorialToAddStep: self.currentTutorial).environment(\.managedObjectContext, self.moc)
         }.onAppear(perform: {
-            self.tutorialToJSON()
             // print(self.currentTutorial)
             print("stop here")
         })

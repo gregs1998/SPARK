@@ -28,6 +28,8 @@
 		266A1C062433D7A8001CCC04 /* JSONExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A1C052433D7A8001CCC04 /* JSONExport.swift */; };
 		2691B5C023F475B4008DECE9 /* StepsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691B5BF23F475B4008DECE9 /* StepsList.swift */; };
 		26AB837323FF38B800D3217F /* resistor2.scn in Resources */ = {isa = PBXBuildFile; fileRef = 26AB837223FF38B800D3217F /* resistor2.scn */; };
+		26DD522D243E573E008A466A /* tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 26DD522C243E573E008A466A /* tutorial.json */; };
+		26DD522F243E5865008A466A /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD522E243E5865008A466A /* DocumentPicker.swift */; };
 		26EA8C4F24182B890076FA11 /* GroundWire.scn in Resources */ = {isa = PBXBuildFile; fileRef = 26EA8C4E24182B890076FA11 /* GroundWire.scn */; };
 		26EA8C51241835A30076FA11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EA8C50241835A30076FA11 /* ViewController.swift */; };
 		26EB680123F5067E00F8A652 /* ViewStepNoEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB680023F5067E00F8A652 /* ViewStepNoEdit.swift */; };
@@ -67,6 +69,8 @@
 		266A1C072433DDD6001CCC04 /* SwiftyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		2691B5BF23F475B4008DECE9 /* StepsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsList.swift; sourceTree = "<group>"; };
 		26AB837223FF38B800D3217F /* resistor2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = resistor2.scn; sourceTree = "<group>"; };
+		26DD522C243E573E008A466A /* tutorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tutorial.json; sourceTree = "<group>"; };
+		26DD522E243E5865008A466A /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DocumentPicker.swift; path = spark_LastestUI/DocumentPicker.swift; sourceTree = "<group>"; };
 		26EA8C4E24182B890076FA11 /* GroundWire.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GroundWire.scn; sourceTree = "<group>"; };
 		26EA8C50241835A30076FA11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26EB680023F5067E00F8A652 /* ViewStepNoEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStepNoEdit.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		2664A23E23F3090900EAF2E0 = {
 			isa = PBXGroup;
 			children = (
+				26DD522C243E573E008A466A /* tutorial.json */,
+				26DD522E243E5865008A466A /* DocumentPicker.swift */,
 				26661BBA23FB13B100F3D177 /* ARView.swift */,
 				26661BB923FB0FE500F3D177 /* CoreDataModels */,
 				2664A24923F3090900EAF2E0 /* spark_LastestUI */,
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2664A25A23F3090C00EAF2E0 /* LaunchScreen.storyboard in Resources */,
+				26DD522D243E573E008A466A /* tutorial.json in Resources */,
 				FF3A85D024119E3200CEC67C /* PowerWire.scn in Resources */,
 				2664A25723F3090C00EAF2E0 /* Preview Assets.xcassets in Resources */,
 				2664A25423F3090C00EAF2E0 /* Assets.xcassets in Resources */,
@@ -306,6 +313,7 @@
 				2664A24B23F3090900EAF2E0 /* AppDelegate.swift in Sources */,
 				26F8F68223F354B700589214 /* ChoiceView.swift in Sources */,
 				266A1C042433D755001CCC04 /* SwiftyJSON.swift in Sources */,
+				26DD522F243E5865008A466A /* DocumentPicker.swift in Sources */,
 				266A1C062433D7A8001CCC04 /* JSONExport.swift in Sources */,
 				2664A26D23F322CA00EAF2E0 /* Step+CoreDataClass.swift in Sources */,
 				2691B5C023F475B4008DECE9 /* StepsList.swift in Sources */,
