@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import CoreData
+import Foundation
 
 struct StepEditView: View {
     
@@ -14,6 +16,16 @@ struct StepEditView: View {
     @Environment(\.presentationMode) var presentationMode
     
     let step:Step
+    
+    func encodeStep(){
+        do {
+            let jsonData = try JSONEncoder().encode(step)
+            print(jsonData)
+            print("stop")
+        } catch {
+            print("Error fetching data from CoreData")
+        }
+    }
     
     @State private var showError = false
     
@@ -26,7 +38,74 @@ struct StepEditView: View {
     @State private var resistance = ""
     @State private var voltage = ""
     
-    let componentTypes = ["Resistor", "Power Source (Vcc)", "Ground (GND)"]
+    let componentTypes = ["Resistor", "Voltage Source (Vcc)", "Ground (GND)"]
+    
+//    func stepToJSON(){
+//            do {
+//
+////                guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+////                    fatalError("Failed to retrieve managed object context")
+////                }
+//
+//                let jsonData = try JSONEncoder().encode(step)
+//                print (jsonData)
+//
+//                let encoder = JSONEncoder()
+//                encoder.outputFormatting = .prettyPrinted
+//
+//                let data = try encoder.encode(step)
+//                print(String(data: data, encoding: .utf8)!)
+//
+//                let newStep:Step = Step(context: self.moc)
+//
+////                case tutorial
+////                case stepNum
+//
+//                if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String:Any] {
+//                    print(json)
+//                    if let pos2Row = json["pos2Row"] as? String{
+//                        newStep.pos2Row = pos2Row
+//                    }
+//                    if let pos1Row = json["pos1Row"] as? String{
+//                        newStep.pos1Row = pos1Row
+//                    }
+//                    if let descrip = json["descrip"] as? String{
+//                        newStep.descrip = descrip
+//                    }
+//                    if let componentType = json["componentType"] as? String{
+//                        newStep.componentType = componentType
+//                    }
+//                    if let pos1Column = json["pos1Column"] as? String{
+//                        newStep.pos1Column = pos1Column
+//                    }
+//                    if let pos2Column = json["pos2Column"] as? String{
+//                        newStep.pos2Column = pos2Column
+//                    }
+//                    if let resistance = json["resistance"] as? String{
+//                        newStep.resistance = resistance
+//                    }
+//                    if let voltage = json["voltage"] as? String{
+//                        newStep.voltage = voltage
+//                    }
+//                    if let id = json["id"] as? UUID{
+//                        newStep.id = id
+//                    }
+//                    if let stepNum = json["stepNum"] as? Int16{
+//                        newStep.stepNum = stepNum
+//                    }
+//                }
+//
+//                print(newStep)
+//
+////                let decoder = JSONDecoder(context: self.moc)
+////                let newStep = try? decoder.decode([Step].self, from: data)
+////                try? moc.save()
+////                print(newStep?[0].descrip ?? "error")
+//
+//            } catch {
+//                print("Error fetching step from CoreData")
+//            }
+//    }
     
     var body: some View {
         VStack{
@@ -109,6 +188,8 @@ struct StepEditView: View {
                         }
                     }
                 }
+            }.onAppear(){
+//                self.stepToJSON()
             }
         .navigationBarItems(trailing: Button("Done"){
 //            self.step.descrip = self.description
