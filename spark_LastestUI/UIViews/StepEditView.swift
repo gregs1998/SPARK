@@ -38,7 +38,7 @@ struct StepEditView: View {
     @State private var resistance = ""
     @State private var voltage = ""
     
-    let componentTypes = ["Resistor", "Power Source (Vcc)", "Ground (GND)"]
+    let componentTypes = ["Resistor", "Voltage Source (Vcc)", "Ground (GND)"]
     
 //    func stepToJSON(){
 //            do {

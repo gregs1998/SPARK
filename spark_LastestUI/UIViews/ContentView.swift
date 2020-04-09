@@ -13,7 +13,7 @@ struct ContentView: View {
     @FetchRequest(entity: Tutorial.entity(), sortDescriptors: []) var tutorials: FetchedResults<Tutorial>
     
     enum ActiveSheet {
-       case add, browser
+        case add, browser
     }
     
     @State private var showingSheet = false
@@ -50,27 +50,31 @@ struct ContentView: View {
                     self.activeSheet = ActiveSheet.browser
                     self.showingSheet.toggle()
                 }){Image(systemName: "square.and.arrow.down")
+                    .resizable()
                     .foregroundColor(Color.blue)
+                    .frame(height: 20)
                 }
-                Spacer()
+                .padding(.trailing, 20)
                 Button(action: {
                     self.activeSheet = ActiveSheet.add
                     self.showingSheet.toggle()
                 }) {
                     Image(systemName: "plus")
+                        .resizable()
+                        .frame(width:20, height: 20)
                 }
             }
         )
             .sheet(isPresented: self.$showingSheet){
                 if(self.activeSheet == ActiveSheet.add){
-            AddTutorialView().environment(\.managedObjectContext, self.moc)
+                    AddTutorialView().environment(\.managedObjectContext, self.moc)
                 } else {
                     DocumentPicker().environment(\.managedObjectContext, self.moc)
                 }
         }
-//        .sheet(isPresented: self.$showingBrowser){
-//            DocumentPicker().environment(\.managedObjectContext, self.moc)
-//        }
+        //        .sheet(isPresented: self.$showingBrowser){
+        //            DocumentPicker().environment(\.managedObjectContext, self.moc)
+        //        }
         
     }
     

@@ -15,11 +15,18 @@ struct HomeView: View {
             VStack{
                 Image("sparkLogo")
                 NavigationLink(destination: ContentView()) {
-                    Text("Tutorials")
-                        .font(.largeTitle)
-                }
-                Button("Speech", action:{
-                    
+                        Text("Tutorials")
+                    }
+                        .foregroundColor(Color.blue)
+                        .font(.system(size: 40))
+                        .padding(.horizontal, 35)
+                        .padding(.vertical, 10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.gray, lineWidth: 3)
+                        )
+                Button("", action:{
+
                 })
                 Spacer()
             }
@@ -32,7 +39,6 @@ func startSpeech(){
     let speaker = speechModel()
     speaker.speak(textToSay: "Welcome to SPARK, your personal circuit building application.")
     
-    let test = Step()
     //test.JSONstuff()
 //    let bob = dispResCode(resVal: "100")
 //    print(bob)
